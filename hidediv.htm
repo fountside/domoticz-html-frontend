@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<head>
+<title>Input</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+		<link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+<!--
+
+window.onload = function() {
+hideelement('resultsgrid');
+	}
+
+
+function toggleelement(nameofelement) {
+    if (document.getElementById(nameofelement).style.display == 'none') {
+		document.getElementById(nameofelement).style.display = 'block' } else {
+		document.getElementById(nameofelement).style.display = 'none'}
+}
+
+function hideelement(nameofelement) {
+		document.getElementById(nameofelement).style.display = 'none'
+}
+
+function showelement(nameofelement) {
+		document.getElementById(nameofelement).style.display = 'block'
+}
+
+function hideorshowgrid() {
+	var contents = document.getElementById("searchtext").value;
+    if (contents == '') {
+		hideelement('resultsgrid'); } else {
+		showelement('resultsgrid'); 
+		}	
+}
+		
+
+//-->
+</script>
+
+
+<body>
+	
+	<div class="inputarea" id="input text"><span class="largemenuitem">Enter data to search for</span>
+		<form>
+ 			<input type="text" id="searchtext" onchange="hideorshowgrid();" size="40">
+		</form>
+	</div>
+	
+	<div id="resultsgrid">
+	<span class="largemenuitem">INSERT RESULTS TABLE HERE</span>
+	</div>
+	
+</body>
+</html>

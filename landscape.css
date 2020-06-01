@@ -1,0 +1,265 @@
+:root {
+    --lowernavbar-color:#444444;
+	--mednavbar-color:#339999;
+	--backgroundtext-color:#FFFFFF;
+	--boxtext-backgroundcolor:#444444;
+	--boxtext-textcolor:#FFFFFF;
+	--timertext-backgroundcolor:#444444;
+	--timertext-textcolor:#FFFFFF;
+	--timertextrunning-backgroundcolor:#CC0000;
+}
+
+
+body {
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin: 0 0 0 0;
+    padding: 0 0 0 0 ;
+	background-color:#333333;
+	background-size: cover;
+}
+
+div.background {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:65%;
+	}
+
+div.mainarea {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:50%;
+	}
+
+div.scenearea {
+	position:absolute;
+	overflow:auto;
+	top:65%;
+	left:0px;
+	width: 100%;
+	height:15%;
+	background-color:var(--mednavbar-color);
+	}	
+	
+div.navigationarea {
+	position:absolute;
+	overflow:hidden;
+	top:80%;
+	left:0px;
+	width: 100%;
+	height:20%;
+	background-color:var(--lowernavbar-color);
+	}	
+	
+div.space-navigation {
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	}	
+	
+div.space-navigation-litup {
+	background-color:var(--mednavbar-color);
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	color:#FFFFFF;
+	}	
+	
+div.icon-navigation {
+	float:left;	
+	overflow:auto;
+	width:80%;
+	padding-top:10%;
+	padding-left:10%;
+	padding-bottom:10%;
+	position:relative;
+	}	
+	
+span.giantclock {
+	position:absolute;
+	left:2vw;
+	top:8vh;
+	font-size:45vh;
+	display: inline-block; 
+	font-weight: bold; 
+	color:var(--backgroundtext-color);
+}
+
+	div.climatemenu {
+	position:absolute;
+	right:2vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timermenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timerrunningmenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertextrunning-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timerpanel {
+	position:absolute;
+	right:26vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.climatepanel {
+	position:absolute;
+	right:2vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+
+
+span.smallmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:4vw;
+	font-size:2.7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:0.75vw;
+	padding-right:0.75vw;
+}
+
+span.medmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:7vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.largemenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:14vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+	div.scenesmenu {
+	position:absolute;
+	right:50vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.scenespanel {
+	position:absolute;
+	right:50vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+
+	div.multimenu {
+	position:absolute;
+	right:74vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}

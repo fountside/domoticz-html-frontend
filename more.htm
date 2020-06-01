@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<head>
+<title>Home Control</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" href="iphone-icon.png"/>
+		<link rel="icon" sizes="196x196" href="logo.png">
+		<link rel="icon" sizes="192x192" href="logo192.png">
+		<link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+		<link rel="stylesheet" media="(orientation: landscape)" href="b-landscape.css">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+<!--
+
+var devicestodisplay =[];
+var nod=0;
+var domoticzurl="192.168.1.163";
+var domoticzport="8080";
+var domoticzuser = "YW50aGVh";
+var domoticzpassword = "YmlhbmNh";
+var hueport="http://192.168.1.73/api/newdeveloper";
+var sonosport="5005";
+var room="Living Room";
+
+window.onload = function() {
+    // all of your code goes in here
+    // it runs after the DOM is built
+	updatetemparea("outtemp","4091");
+	updatetemparea("intemp","4235");
+	updateClock();
+	getalldevices();
+	}
+	
+window.setInterval(function(){
+	updateClock();
+}, 30000);
+
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+function speak(textToSpeak) {
+   // Create a new instance of SpeechSynthesisUtterance
+   var newUtterance = new SpeechSynthesisUtterance();
+
+   // Set the text
+   newUtterance.text = textToSpeak;
+
+   // Add this text to the utterance queue
+   window.speechSynthesis.speak(newUtterance);
+}
+
+function getalldevices(){
+fLen = devicestodisplay.length;
+for (i = 0; i < fLen; i++) {
+	getdevice(devicestodisplay[i]);
+	}
+}
+
+function getdevice(idx){
+	console.log("getting device idx" + idx);
+	var xmlhttp = new XMLHttpRequest();
+	var url = 'http://'+domoticzurl+':'+domoticzport+'/json.htm?username='+ domoticzuser + '&password=' + domoticzpassword + '&type=devices&rid='+idx;
+	xmlhttp.onreadystatechange = function() {
+		console.log(devicestodisplay[i] + "   " +xmlhttp.readyState)
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var myArr = JSON.parse(xmlhttp.responseText);
+	   		devicename = myArr.result[0].Name;
+			devicestatus = myArr.result[0].Status;
+	   		console.log(" ---------- GET DEVICE ----------- " + devicename + "(" + devicestatus+")");
+			nod=nod+1;
+			var div = document.createElement("div");
+			div.className = 'devicecontainer';
+			div.id = "DEVICE"+idx;
+			console.log(" ---------- CREATE DIV ----------- " + div.id);
+			document.getElementById("devicesdiv").appendChild(div);
+			document.getElementById(div.id).innerHTML='<span class="devicename">'+devicename+'</span>';
+			document.getElementById(div.id).addEventListener('click', function() {
+ 				{ toggle(idx); };
+			}, false);
+			
+			}
+		}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
+function updatealldevices(){
+fLen = devicestodisplay.length;
+for (i = 0; i < fLen; i++) {
+	updatedevice(devicestodisplay[i]);
+	}
+}
+
+
+function execute($method,$url,$message){
+xmlhttp=new XMLHttpRequest();
+xmlhttp.open($method,$url,true)
+xmlhttp.send($message);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////  HUE COMMANDS
+
+function scene(scenecode){
+	execute('PUT', hueport + '/groups/0/action', '{"scene":"'+scenecode+'"}');
+}
+
+function huelightoff(light){
+	execute('PUT', hueport + '/lights/'+light+'/state', '{"on":false}');
+}
+
+function huelightmax(light){
+	execute('PUT', hueport + '/lights/'+light+'/state', '{"on":true,"bri":255,"sat":0,"hue":0}');
+}
+
+function huegroupoff(group){
+	execute('PUT', hueport + '/groups/'+group+'/action', '{"on":false}');
+}
+
+///////////////////////////////////////////////////////////////////////////////////////  SONOS COMMANDS
+
+function sonos(command){
+	console.log("Sending Sonos Command "+command)
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://"+domoticzurl+":"+sonosport+"/"+ room +"/"+command;
+	xmlhttp.onreadystatechange = function() {
+    	}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+ticker=0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////  DOMOTICZ COMMANDS
+
+function switchon(devicecode){
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=switchlight&idx='+devicecode+'&switchcmd=On', '');
+}
+
+function switchoff(devicecode){
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=switchlight&idx='+devicecode+'&switchcmd=Off', '');
+}
+
+function toggle(devicecode){
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=switchlight&idx='+devicecode+'&switchcmd=Toggle', '');
+}
+
+function dim(devicecode,dimlevel){
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=switchlight&idx='+devicecode+'&switchcmd=Set%20Level&level='+dimlevel, '');
+}
+
+function updatedevice(idx){
+	var location="DEVICE"+idx;
+	console.log("------------------------checking status to update "+location);
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://192.168.1.163:8080/json.htm?username=YW50aGVh&password=YmlhbmNh&type=devices&rid="+idx;
+	var onoff;
+	xmlhttp.onreadystatechange = function() {
+    	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        	var myArr = JSON.parse(xmlhttp.responseText);
+			onoff = myArr.result[0].Status;
+			devicename = myArr.result[0].Name;
+       // myFunction(myArr);
+    	}
+		if (onoff == "On") {
+		document.getElementById(location).className = "deviceon";
+		} 
+		if (onoff == "Off") {
+		document.getElementById(location).className = "deviceoff";
+		}
+		if (onoff == "Open") {
+		document.getElementById(location).className  = "deviceon";
+		} 
+		if (onoff == "Closed") {
+		document.getElementById(location).className= "deviceoff";
+		}
+	}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
+function MM_callJS(jsStr) { //v2.0
+  return eval(jsStr)
+}
+
+function updateClock() {
+    var now = new Date(), // current date
+		timetext = checkTime(now.getHours()) + ':' + checkTime(now.getMinutes()); // again, you get the idea
+    // set the content of the element with the ID time to the formatted string
+    document.getElementById("clocktext").innerHTML = timetext;
+    // call this function again in 1000ms
+		setTimeout(updateClock,1000);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////  TIMER COMMANDS
+
+function toggletimerpanel() {
+    if (document.getElementById('timerpopup').style.display == 'none') {
+		document.getElementById('timerpopup').style.display = 'block' } else {
+		document.getElementById('timerpopup').style.display = 'none'}
+}
+
+function hidetimerpanel() {
+		document.getElementById('timerpopup').style.display = 'none'
+}
+
+function starttimer(minutes) {
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=updateuservariable&idx=14&vname=Timer&vtype=Integer&vvalue=' + minutes, '');
+	switchon(666);
+	speak("Timer set for " + minutes + "minutes and is now running.");
+	ticker=0;
+}
+
+function updatetemparea(divname,idxcode){
+	var instatus
+	var outstatus
+	var weatherstatus
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://192.168.1.163:8080/json.htm?username=YW50aGVh&password=YmlhbmNh&type=devices&rid="+idxcode;
+	xmlhttp.onreadystatechange = function() {
+    	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        	var myArr = JSON.parse(xmlhttp.responseText);
+			temptext =  myArr.result[0].Temp;
+			humtext = myArr.result[0].Humidity;
+			console.log(outstatus)
+			document.getElementById(divname).innerHTML = temptext + "C  " + humtext + "%"
+    	}
+	}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
+
+function updatetimer(){
+	var timerstatus
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://192.168.1.163:8080/json.htm?username=YW50aGVh&password=YmlhbmNh&type=command&param=getuservariable&idx=14";
+	xmlhttp.onreadystatechange = function() {
+    	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        	var myArr = JSON.parse(xmlhttp.responseText);
+			outstatus = myArr.result[0].Value;
+			if (outstatus != -1) {
+			document.getElementById("timerstatus").innerHTML = outstatus + 'm';
+			document.getElementById('timerstatus').className = 'timerrunningmenu';
+			} else {
+			document.getElementById("timerstatus").innerHTML = 'Timer not running';
+			document.getElementById('timerstatus').className = 'timermenu';
+			}
+    	}
+	}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
+function timercancel(){
+	execute('PUT', 'http://' + domoticzurl + ':' + domoticzport + '/json.htm?username=' + domoticzuser + '&password=' + domoticzpassword + '&type=command&param=updateuservariable&idx=14&vname=Timer&vtype=Integer&vvalue=0', '');
+	switchoff(666);
+	speak("Timer cancelled.");
+}
+
+//////////////////////////////////////////////////////////////////////////////////////  SCENES COMMANDS
+
+function toggleelement(nameofelement) {
+    if (document.getElementById(nameofelement).style.display == 'none') {
+		document.getElementById(nameofelement).style.display = 'block' } else {
+		document.getElementById(nameofelement).style.display = 'none'}
+}
+
+function hideelement(nameofelement) {
+		document.getElementById(nameofelement).style.display = 'none'
+}
+
+//-->
+</script>
+
+
+<body>
+	<div class="background" id="wallpaper"><img src="assets/backgrounds/city.jpg" width="100%"></div>
+	<audio id="scene" src="assets/sounds/beep2.mp3" preload="auto"></audio>
+	
+	
+	<div id="navigationarea" class="navigationstrip">
+		<a href="index.htm"><div id="1" class="iconblock" align="center"><img src="assets/icons/home (1).png" width="80%"></div></a>
+		<a href="kitchen.htm"><div id="1" class="iconblock" align="center"><img src="assets/icons/oven.png" width="80%"></div></a>
+		<a href="night.htm"><div id="2" class="iconblock" align="center"><img src="assets/icons/moon.png" width="80%"></div></a>
+		<a href="harry.htm"><div id="3" class="iconblock" align="center"><img src="assets/icons/house (3).png" width="80%"></div></a>
+		<a href="chester.htm"><div id="4" class="iconblock" align="center"><img src="assets/icons/bed1.png" width="80%"></div></a>
+	</div>
+
+	
+	
+</body>
+</html>

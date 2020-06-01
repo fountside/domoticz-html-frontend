@@ -1,0 +1,734 @@
+:root {
+
+	--background-system:#333333;
+	--navleft:#0F2027;
+	--navmid:#203A43;
+	--navright:#2C5364;
+	
+	--textlight:#ffffff;
+	--textdark:#333333;
+
+	--deviceon:#2C5364;
+
+	--infoleft:#0F2027;
+	--inforight:#2C5364;
+	--nightgrey:#626872;
+		
+    --lowernavbar-color:#444444;
+	--mednavbar-color:#339999;
+	--backgroundtext-color:#FFFFFF;
+	--boxtext-backgroundcolor:#444444;
+	--boxtext-textcolor:#FFFFFF;
+	--timertext-backgroundcolor:#444444;
+	--timertext-textcolor:#FFFFFF;
+	--timertextrunning-backgroundcolor:#CC0000;
+}
+
+
+body {
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin: 0 0 0 0;
+    padding: 0 0 0 0 ;
+	background-color:var(--background-system);
+	background-size: cover;
+}
+
+div.background {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:10%;
+	}
+	
+div.nightbackground {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:10%;
+	filter:brightness(0.1);
+	}
+
+div.mainarea {
+	position:absolute;
+	overflow:scroll;
+	width:100%;
+	height:70%;
+	top:0%
+	}
+	
+div.popuparea {
+	position:fixed;
+	overflow:auto;
+	top:10%;
+	right:10%;
+	width:85%;
+	height:85%;
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	}
+
+div.clockarea {
+	color: var(--textlight);
+	width:100%;
+	height:10%;
+	font-size:9vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.clockareanight {
+	color: var(--nightgrey);
+	position:absolute;
+	top:100px;
+	right:20%;
+	font-size:30vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.scenearea {
+	color: var(--textlight);
+	width:100%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:scroll;
+	position:absolute;
+	bottom:0px;
+	height:30%;
+}
+	
+	
+div.navigationitem {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:11%;
+	height:15%;
+	font-size:2.5vw;
+	display: inline-block; 
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.onoffitem {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:45%;
+	height:20%;
+	font-size:2.3vw;
+	margin-top:1vh;
+	margin-left:0.5vw;
+	overflow:hide;
+	display: inline-block; 
+}
+
+div.navigationitemdoublewidth {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:95%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.navigationitemquadruplewidth {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:90%;
+	height:45%;
+	font-size:7w;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.navigationitemfourguages {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:90%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.navigationitemnight {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--nightgrey);
+	width:95%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.album {
+	color: var(--textlight);
+	width:15vw;
+	height:15vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin:1vh;
+	float:left;	
+	overflow:hidden;
+}
+
+div.lightspace {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:15%;
+	height:15%;
+	font-size:4vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.lightkey {
+	color: var(--textlight);
+	width:7%;
+	height:10%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.lightkeyquad {
+	color: var(--textlight);
+	width:28%;
+	height:10%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.popuptitle {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:95%;
+	font-size:4vw;
+	display: inline-block; 
+	padding-left:5%;
+	overflow:hidden;
+}
+
+div.onofftitle {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:100%;
+	font-size:5vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+div.onoffon {
+	position:static;
+	background-color:var(--deviceon);
+	color:var(--textlight);
+	width:50%;
+	font-size:7vw;
+	display: inline-block; 
+	left:0px;
+	bottom:0px;
+}
+
+div.onoffoff {
+	position:static;
+	background-color:var(--deviceon);
+	color:var(--textlight);
+	width:50%;
+	font-size:7vw;
+	display: inline-block; 
+	right:0px;
+	bottom:0px;
+}
+
+div.roundel {
+	color:var(--textlight);
+	width:45%;
+	font-size:2.3vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+div.guage {
+	color:var(--textlight);
+	width:24%;
+	height:100%;
+	font-size:2.3vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+div.navigationitemquadwidth {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:90%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:scroll;
+}
+
+div.infoitem {
+	background: linear-gradient(to right, var(--infoleft), var(--inforight));
+	color: var(--textlight);
+	width:21.5%;
+	height:25%;
+	font-size:1.5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.rightinfoitem {
+	background: linear-gradient(to right, var(--infoleft), var(--inforight));
+	color: var(--textlight);
+	width:90%;
+	height:35%;
+	left:0px;
+	font-size:5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+span.infotext {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:80%;
+	font-size:5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+
+span.minikey {
+	background-color:var(--textdark);
+	color:var(--textlight);
+	font-size:5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+span.closekey {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:89%;
+	font-size:7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+}
+
+span.textbutton {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	font-size:5vw;
+	display: inline-block; 
+	margin:0.4vw;
+	padding:0.4vw;
+}
+
+span.textbuttondark {
+	background-color:var(--nightgrey);
+	color:var(--textdark);
+	font-size:5vw;
+	display: inline-block; 
+	margin:0.4vw;
+	padding:0.4vw;
+}
+
+span.scrolltitle {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	font-size:7vw;
+	width:90%;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+}
+
+div.breakleft {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	display: inline-block; 
+	font-size:7vw;
+	width:45%; 
+}
+div.breakright {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	display: inline-block; 
+	font-size:7vw;
+	width:45%; 
+}
+
+img.hueicon {
+ filter: invert(100%);
+}
+
+div.devicecontainer {
+	background-color:#666666;
+	color:#FFFFFF;
+	width:47%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 4vh;
+	text-align:center;
+	outline: 1px solid var(--textlight);
+}
+
+
+div.deviceon {
+	background-color:var(--deviceon);
+	color:#FFFFFF;
+	width:47%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 4vh;
+	text-align:center;
+	outline: 1px solid var(--textlight);
+}
+
+div.deviceoff {
+	color:#FFFFFF;
+	width:47%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 4vh;
+	text-align:center;
+	outline: 1px solid var(--textlight)
+}
+
+span.devicename {
+
+	float:left;
+	overflow:auto;
+	color:white;
+	font-size: 4vw;
+	text-align:left;
+	padding:10px;
+}
+
+div.musictext {
+	color:var(--textlight);
+	font-size:3vw;
+	display: inline-block; 
+	margin:0.4vw;
+}
+
+div.sensorcontainer {
+	background-color:#666666;
+	color:#FFFFFF;
+	width:100%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 3vh;
+	text-align:left;
+	outline: 1px solid var(--textlight);
+}
+
+span.sensorname {
+	background-color:var(--textdark);
+	color:var(--textlight);
+	font-size:1.5vw;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	width:15vw;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+}
+
+span.sensorstate {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	font-size:1.5vw;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	width:4vw;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+}
+
+
+div.navigationarea {
+	position:absolute;
+	overflow:hidden;
+	top:80%;
+	left:0px;
+	width: 100%;
+	height:20%;
+	background-color:var(--lowernavbar-color);
+	}	
+	
+div.space-navigation {
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	}	
+	
+div.space-navigation-litup {
+	background-color:var(--mednavbar-color);
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	color:#FFFFFF;
+	}	
+	
+div.icon-navigation {
+	float:left;	
+	overflow:auto;
+	width:80%;
+	padding-top:10%;
+	padding-left:10%;
+	padding-bottom:10%;
+	position:relative;
+	}	
+	
+span.giantclock {
+	position:absolute;
+	left:2vw;
+	top:8vh;
+	font-size:45vh;
+	display: inline-block; 
+	font-weight: bold; 
+	color:var(--backgroundtext-color);
+}
+
+	div.climatemenu {
+	position:absolute;
+	right:2vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timermenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+div.timerarea {
+	color: var(--textlight);
+	background-color: var(--textdark);
+	width:100%;
+	font-size:12vw;
+	overflow:auto;
+}
+
+	div.timerrunningmenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertextrunning-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timerpanel {
+	position:absolute;
+	right:26vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.climatepanel {
+	position:absolute;
+	right:2vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+
+
+span.smallmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:4vw;
+	font-size:2.7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:0.75vw;
+	padding-right:0.75vw;
+}
+
+span.medmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:7vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+
+	div.scenesmenu {
+	position:absolute;
+	right:50vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.scenespanel {
+	position:absolute;
+	right:50vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+
+	div.multimenu {
+	position:absolute;
+	right:74vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}

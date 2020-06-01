@@ -1,0 +1,892 @@
+:root {
+
+	--background-system:#333333;
+	--navleft:#4f4f4f;
+	--navmid:#4f4f4f;
+	--navright:#4f4f4f;
+	
+	--textlight:#ffffff;
+	--textdark:#333333;
+
+	--buttondark:#ffffff;
+	--offbuttondark:#bf7c7c;
+	--buttonlight:#333333;
+
+	--deviceoff:#4f4f4f;	
+	--deviceon:#bf7c7c;
+	
+	--infoleft:#0F2027;
+	--inforight:#4f4f4f;
+	--nightgrey:#626872;
+		
+    --lowernavbar-color:#444444;
+	--mednavbar-color:#339999;
+	--backgroundtext-color:#FFFFFF;
+	--boxtext-backgroundcolor:#444444;
+	--boxtext-textcolor:#FFFFFF;
+	--timertext-backgroundcolor:#444444;
+	--timertext-textcolor:#FFFFFF;
+	--timertextrunning-backgroundcolor:#CC0000;
+}
+
+
+body {
+
+	font-family: 'Oxanium', cursive;
+
+	background-color:var(--background-system);
+	background-size: cover;
+	font-size:0;
+	max-width:1920px;
+}
+
+#wrapper {
+    min-width: 960px;
+    width: 90%;
+    max-width: 1920px;
+}
+
+
+
+div.background {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:100%;
+	}
+	
+div.nightbackground {
+	position:absolute;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	width: 100%;
+	height:100%;
+	filter:brightness(0.2);
+	}
+
+div.mainarea {
+	position:absolute;
+	overflow:scroll;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:90%;
+	}
+	
+div.popuparea {
+	color: var(--textlight);
+	font-size:6vw;
+	position:fixed;
+	overflow:auto;
+	top:10%;
+	left:10%;
+	width:80%;
+	height:70%;
+	background: var(--navleft);
+	}
+
+div.clockarea {
+	width:0%;
+	height:0%;	
+}
+
+div.timerarea {
+
+	color: var(--textlight);
+	background-color: var(--textdark);
+	font-size:12vw;	
+
+}
+
+div.clockareanight {
+	color: var(--nightgrey);
+	position:absolute;
+	top:100px;
+	right:20%;
+	font-size:30vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.scenearea {
+	color: var(--textlight);
+	position:absolute;
+	bottom:10vh;
+	right:0px;
+	width:100vw;
+	height:15vw;
+	font-size:0;
+	display: inline-block; 
+	overflow:scroll;
+}
+	
+div.navigationstrip {
+	height:10%;
+	width:100%;
+	bottom:0px;
+	left:0px;
+	overflow:hidden;
+	position:absolute;
+	background: var(--navright);
+	
+}
+
+div.iconblock {
+	color: var(--textlight);
+	width:14vw;
+	height:100%;
+	font-size:2.3vw;
+ 	overflow:hidden;
+	display: inline-block; 
+}
+	
+div.navigationitem {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:10%;
+	height:15%;
+	font-size:2.3vw;
+ 	overflow:hidden;
+	display: inline-block; 
+}
+
+div.onoffitem {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:21%;
+	height:30%;
+	font-size:2.3vw;
+	margin-top:1vh;
+	margin-left:0.5vw;
+	overflow:scroll;
+	display: inline-block; 
+}
+
+div.navigationitemdoublewidth {
+
+	color: var(--textlight);
+	width:98vw;
+	font-size:2.3vw;
+	margin:0px;
+	padding:1vw;
+	display: inline-block; 
+	overflow:scroll;
+}
+
+div.navigationitemquadruplewidth {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:90%;
+	height:45%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.navigationitemfourguages {
+	color: var(--textlight);
+	background: var(--navright);
+	width:95vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:0.5vw;	
+	overflow:hidden;
+}
+
+div.navigationitemnight {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--nightgrey);
+	width:95%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	padding-bottom:1vw;	
+	overflow:hidden;
+}
+
+div.album {
+	color: var(--textlight);
+	width:25vw;
+	height:25vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin:1vh;
+	float:left;	
+	overflow:hidden;
+}
+
+div.lightspace {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:10%;
+	height:25%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.lightkey {
+	color: var(--textlight);
+	width:7%;
+	height:10%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.lightkeyquad {
+	color: var(--textlight);
+	width:28%;
+	height:10%;
+	font-size:4vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.popuptitle {
+	background-color:var(--offbuttondark);
+	color:var(--textlight);
+	width:95%;
+	font-size:4vw;
+	display: inline-block; 
+	padding-left:5%;
+	overflow:hidden;
+}
+
+div.onofftitle {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:100%;
+	font-size:2.5vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+div.onoffon {
+	position:static;
+	background-color:var(--deviceon);
+	color:var(--textlight);
+	width:50%;
+	font-size:2.5vw;
+	display: inline-block; 
+	left:0px;
+	bottom:0px;
+	border-radius: 300px;
+}
+
+div.onoffoff {
+	position:static;
+	background-color:var(--deviceon);
+	color:var(--textlight);
+	width:50%;
+	font-size:2.5vw;
+	display: inline-block; 
+	right:0px;
+	bottom:0px;
+	border-radius: 300px;
+}
+
+div.roundel {
+	color:var(--offbuttondark);
+	width:30%;
+	font-size:2.3vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+div.guage {
+	color:var(--offbuttondark);
+	width:23vw;
+	height:100%;
+	font-size:2.3vw;
+	display: inline-block; 
+	overflow:hidden;
+}
+
+
+div.navigationitemquadwidth {
+	background: linear-gradient(to right, var(--navleft), var(--navmid), var(--navright));
+	color: var(--textlight);
+	width:95%;
+	height:50%;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:scroll;
+}
+
+div.infoitem {
+	background: linear-gradient(to right, var(--infoleft), var(--inforight));
+	color: var(--textlight);
+	width:21.5%;
+	height:25%;
+	font-size:1.5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	overflow:hidden;
+}
+
+div.rightinfoitem {
+	display:none;
+	width:0%;
+	height:0%;
+	font-size:0vw;
+}
+
+div.rightweatheritem {
+	display:none;
+	width:0%;
+	height:0%;
+	font-size:0vw;
+}
+
+span.normaltext {
+
+	color:var(--textlight);
+	font-size:0vw;
+
+}
+
+
+span.infotext {
+	background-color:var(--textlight);
+
+	color:var(--textdark);
+	width:80%;
+	font-size:2vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+
+span.minikey {
+	color:var(--offbuttondark);
+	border-style:solid;
+	border-color:var(--offbuttondark);
+
+	font-size:5vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;	
+}
+span.closekey {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	width:95.5%;
+	font-size:5vw;
+	display: inline-block; 
+	margin-top:0.5vh;
+
+}
+
+span.textbutton {
+	background-color:var(--buttondark);
+	color:var(--buttonlight);
+	width:46.2vw;
+	font-size:5.5vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.textbuttoninpopup {
+	background-color:var(--buttondark);
+	color:var(--buttonlight);
+	width:35vw;
+	font-size:5vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.offtextbutton {
+	background-color:var(--offbuttondark);
+	color:var(--buttonlight);
+	width:46.2vw;
+	font-size:5.5vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.offtextbuttoninpopup {
+	background-color:var(--offbuttondark);
+	color:var(--buttonlight);
+	width:35vw;
+	font-size:5vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.doubletextbutton {
+	background-color:var(--buttondark);
+	color:var(--buttonlight);
+	width:95vw;
+	font-size:5.5vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.nightdoubletextbutton {
+	background-color:var(--buttonlight);
+	color:var(--buttondark);
+	width:32vw;
+	font-size:2.25vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+span.roomname {
+	background-color:var(--inforight);
+	color:var(--textlight);
+	font-size:4vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:0.2vw;
+	padding-bottom:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	width:16.9vw;
+	height:5vh;
+}
+
+
+span.sectiontitle {
+	background-color:var(--inforight);
+	color:var(--textlight);
+	font-size:7vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:0.2vw;
+	padding-bottom:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	width:95vw;
+}
+
+div.transportcontrols {
+	background-color:var(--inforight);
+	color:var(--textlight);
+	font-size:0vw;
+	display: inline-block; 
+	margin:0.2vw 0 0.2vw;
+	padding-top:0.1vw;
+	padding-bottom:0.1vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	width:95vw;
+}
+
+
+span.textbuttondark {
+	background-color:var(--nightgrey);
+	color:var(--textdark);
+	font-size:2.5vw;
+	display: inline-block; 
+	margin:0.2vw;
+	padding:0.2vw;
+	border-radius: 300px;
+}
+
+span.scrolltitle {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	font-size:4vw;
+	width:90%;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+}
+
+div.breakleft {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	display: inline-block; 
+	font-size:4vw;
+	width:50%; 
+}
+div.breakright {
+	background-color:var(--textlight);
+	color:var(--textdark);
+	display: inline-block; 
+	font-size:4vw;
+	width:50%; 
+}
+
+img.hueicon {
+ filter: invert(100%);
+}
+
+div.devicecontainer {
+	align:center;
+	background-color:#666666;
+	color:#FFFFFF;
+	width:100%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 3vh;
+	text-align:center;
+	margin-top:0.3vh;
+}
+
+
+div.deviceon {
+	display:none;
+	align:center;
+	background-color:var(--deviceon);
+	color:var(--deviceoffnext);
+	width:100%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 3vh;
+	text-align:center;
+
+		margin-top:0.4vh;
+}
+
+div.deviceoff {
+	display:none;
+	align:center;
+	background-color:var(--deviceoff);
+	color:var(--deviceofftext);
+	width:100%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 3vh;
+	text-align:center;
+		margin-top:0.4vh;
+}
+
+span.devicename {
+	display:none;
+	align:center;
+	float:left;
+	overflow:auto;
+	color:white;
+	font-size: 2vw;
+	text-align:left;
+	padding:10px;
+}
+
+div.musictext {
+	color:var(--textlight);
+	font-size:5vw;
+	width:60vw;
+	display: inline-block; 
+	margin:0.4vw;
+}
+
+div.sensorcontainer {
+
+	width:100%;
+	height:20%;
+	float:left;
+	overflow:auto;
+	font-size: 3vh;
+	text-align:left;
+}
+
+span.sensorname {
+	color:var(--textlight);
+	font-size:3vw;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	width:45%;
+	padding-left:2vw;
+}
+
+span.sensorstate {
+
+	color:var(--textlight);
+	font-size:3vw;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+	width:15%;
+}
+
+span.sensordatetime {
+	color:var(--textlight);
+	font-size:3vw;
+	display: inline-block; 
+	margin-left:0vw;
+	margin-top:0vh;
+	padding-left:0.2vw;
+	padding-right:0.2vw;
+}
+
+
+div.navigationarea {
+	position:absolute;
+	overflow:hidden;
+	top:80%;
+	left:0px;
+	width: 100%;
+	height:20%;
+	background-color:var(--lowernavbar-color);
+	}	
+	
+div.space-navigation {
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	}	
+	
+div.space-navigation-litup {
+	background-color:var(--mednavbar-color);
+	float:left;	
+	overflow:auto;
+	width:10%;
+	padding-top:100%;
+	position:relative;
+	padding:0px;
+	font-size:3vw;
+	color:#FFFFFF;
+	}	
+	
+div.icon-navigation {
+	float:left;	
+	overflow:auto;
+	width:80%;
+	padding-top:10%;
+	padding-left:10%;
+	padding-bottom:10%;
+	position:relative;
+	}	
+	
+span.giantclock {
+	position:absolute;
+	left:2vw;
+	top:8vh;
+	font-size:45vh;
+	display: inline-block; 
+	font-weight: bold; 
+	color:var(--backgroundtext-color);
+}
+
+	div.climatemenu {
+	position:absolute;
+	right:2vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timermenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timerrunningmenu {
+	position:absolute;
+	right:26vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertextrunning-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.timerpanel {
+	height:100vw;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.climatepanel {
+	position:absolute;
+	right:2vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+
+
+span.smallmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:4vw;
+	font-size:2.7vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:0.75vw;
+	padding-right:0.75vw;
+}
+
+span.medmenuitem {
+	background-color:var(--timertext-textcolor);
+	color:var(--timertext-backgroundcolor);
+	width:7vw;
+	font-size:2.3vw;
+	display: inline-block; 
+	margin-top:1vh;
+	margin-left:0.2vw;
+	padding-left:1vw;
+	padding-right:1vw;
+}
+
+
+	div.scenesmenu {
+	position:absolute;
+	right:50vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+	div.scenespanel {
+	position:absolute;
+	right:50vw;
+	top:15vh;
+	height:55vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--boxtext-backgroundcolor);
+	color:var(--boxtext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+	overflow:scroll;
+}
+
+
+	div.multimenu {
+	position:absolute;
+	right:74vw;
+	top:4vh;
+	height:9vh;
+	width:20vw;
+	font-size:2.5vw;
+	display: inline-block; 
+	font-weight: bold; 
+	background-color:var(--timertext-backgroundcolor);
+	color:var(--timertext-textcolor);
+	padding-top:2vh;
+	padding-left:2vw;
+	padding-right:2vw;
+}
