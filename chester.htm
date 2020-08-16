@@ -144,8 +144,8 @@ window.onload = function() {
     // it runs after the DOM is built
 	hideelement('timercontrols');	
 	hideelement('lightcontrols');	
-	updatetemparea("outtemp","5983");
-	updatetemparea("intemp","4963");
+	updatetemparea("outtemp","5954");
+	updatetemparea("intemp","5955");
 	updatetimer();
 	updateClock();
 	getalldevices();
@@ -160,8 +160,8 @@ window.onload = function() {
 	
 window.setInterval(function(){
 	updateClock();
-	updatetemparea("outtemp","5983");
-	updatetemparea("intemp","4963");
+	updatetemparea("outtemp","5954");
+	updatetemparea("intemp","5955");
 	updateweathertext();
 	updateweatherpressure();
 	updateweathericon();
@@ -795,8 +795,9 @@ switchon(4852);
 	</div>
 	<a href="climate.htm"><div class="rightinfoitem" align="center"><img src="assets/icons/indoors.png"><span class="normaltext" id="intemp">--</span><br><img src="assets/icons/outdoors.png"><span class="normaltext" id="outtemp">--</span><br><img src="assets/icons/pressure.png"><span class="normaltext" id="pressuretext">--</span></div></a>
 	<a href="climate.htm"><div class="rightweatheritem" align="center"><img id="weathericon" src="" style="filter:grayscale(100%);"height="40px"><span id="weathertext">--</span></div></a>
-
-	<div id="devicesdiv" align="center">
+	<a href="climate.htm"><div class="rightweatheritem" align="center"><img id="bathroomhigh" src="assets/icons/bathroom-high.png" width="100%"></div></a>
+	<a href="climate.htm"><div class="rightweatheritem" align="center"><img id="cleanfilter" src="assets/icons/clean-filter.png" width="100%"></div></a>
+		<div id="devicesdiv" align="center">
 		</div>
 	</div>
 	
